@@ -1,15 +1,23 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
+import {useState} from 'react';
+import shortid from 'shortid';
+import ColumnForm from '../ColumnForm/ColumnForm';
 
 const List = () => {
-	const columns = [
+	const [columns, setColumns] = useState([
 		{id: 1, title: 'Books', icon: 'book'},
 		{id: 2, title: 'Movies', icon: 'film'},
 		{id: 3, title: 'Games', icon: 'gamepad'}
-	];
-	setTimeout(() => {
-		columns.push({ id: 4, title: 'Test column'});
-	}, 2000);
+	]);
+	// useEffect(() => {
+	// 		setTimeout(() => {
+	// 			setColumns([...columns, {id: 4, title: 'Test column'}]);
+	// 		}, 2000);
+	// }, []);
+	const addColumn = newColumn => {
+		setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon }]);
+	};
 	return (
 		<div className={styles.list}>
 			<header className={styles.header}>
@@ -19,6 +27,7 @@ const List = () => {
 			<section className={styles.columns}>
 				{columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} />)}
 			</section>
+			<ColumnForm action={addColumn} />
 		</div>
 	);
 };
