@@ -20,6 +20,15 @@
 				margin: 10px;
 				color: $color-light;
 				text-decoration: none;
+				transition: $transition;
+
+				&:hover {
+					color: $color-warning;
+				}
+			}
+
+			.linkActive {
+				color: $color-warning;
 			}
 		}
 	}
