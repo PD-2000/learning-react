@@ -10,7 +10,7 @@ const Favorite = () => {
 		return (
 			<div className={styles.favorite}>
 				<PageTitle>No favorite cards yet...</PageTitle>
-				<h3>Click on the star next to a card to add it here.</h3>
+				<h3 className={styles.hint}>Click on a star on the right of any card to add it here.</h3>
 			</div>
 		);
 	}
@@ -19,7 +19,7 @@ const Favorite = () => {
 			<PageTitle>Favorite</PageTitle>
 			<div className={styles.column}>
 				<ul className={styles.cards}>
-					{cards.map(card => <Card key={card.id} title={card.title} isFavorite={card.isFavorite} />)}
+					{cards.map(card => <Card key={card.id} title={card.title} isFavorite={card.isFavorite} id={card.id} />)}
 				</ul>
 			</div>
 		</div>
