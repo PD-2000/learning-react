@@ -12,18 +12,18 @@
 	font-weight: bold;
 }
 
-.icon::before {
-	padding-right: $base-size;
-	vertical-align: middle;
-	position: relative;
-}
-
 .button {
 	width: 17px;
 	padding: 0;
 	background-color: transparent;
 	border-color: transparent;
 	cursor: pointer;
+}
+
+.icon::before {
+	padding-right: $base-size;
+	vertical-align: middle;
+	position: relative;
 }
 
 .isActive {
